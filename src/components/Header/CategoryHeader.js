@@ -6,6 +6,9 @@ const Container = styled.div`
   padding: 1rem 2rem;
   background: #282828;
   color: white;
+  @media (max-width: 900px) {
+    display: none;
+  }
 `
 const CategoryCon = styled.ul`
   list-style-type: none;
@@ -14,10 +17,6 @@ const CategoryCon = styled.ul`
   font-size: 1.2rem;
   font-weight: 600;
   font-family: Arial, Helvetica, sans-serif;
-
-  @media (max-width: 900px) {
-    font-size: 0.7rem;
-  }
 
   a {
     color: white;

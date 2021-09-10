@@ -24,15 +24,20 @@ const Cart = styled.div`
 
 const Left = styled.div`
   flex: 2;
-  border: 4px solid #282828;
   border-radius: 25px;
   padding: 1rem;
+  background: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 `
 
 const ProductCart = styled.div`
   display: flex;
   align-content: center;
   justify-content: space-around;
+  border-bottom: 2px solid #827a7a;
+  padding-bottom: 1rem;
 `
 
 const ProductImage = styled.img`
@@ -76,8 +81,9 @@ const Right = styled.div`
   margin-top: 2rem;
   align-self: flex-start;
   padding: 1rem;
-  border: 4px solid #282828;
+  border: 2px solid #282828;
   border-radius: 25px;
+  background: #f6f6f6;
 `
 const SubTitle = styled.div`
   text-align: center;

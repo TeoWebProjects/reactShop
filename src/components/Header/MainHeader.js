@@ -4,6 +4,7 @@ import styled from "styled-components"
 import { Link } from "react-router-dom"
 import { FaShoppingBasket } from "react-icons/fa"
 import { BsList } from "react-icons/bs"
+import MobileMenu from "../MobileMenu"
 
 const Container = styled.div`
   padding-left: 2rem;
@@ -78,16 +79,16 @@ const CountCart = styled.div`
 const Mid = styled.div`
   font-size: 2rem;
   align-self: center;
+  cursor: pointer;
 `
 const MainHeader = () => {
   const [width, setWidth] = useState(0)
-
+  const [vis, setVis] = useState("none")
   const cart = useSelector((state) => state.cart)
   const { cartItems } = cart
   useEffect(() => {
     updateDimensions()
     window.addEventListener("resize", updateDimensions)
-    console.log(width)
   }, [width])
 
   const updateDimensions = () => {
@@ -96,9 +97,10 @@ const MainHeader = () => {
   }
   return (
     <Container>
+      <MobileMenu visibility={vis} closeMenu={() => setVis("none")} />
       {width < 900 ? (
         <Mid>
-          <BsList />
+          <BsList onClick={() => setVis("vis")} />
         </Mid>
       ) : null}
 
@@ -132,16 +134,6 @@ const MainHeader = () => {
             </Link>
           </Cart>
         )}
-        {/* <Login>ΣΥΝΔΕΣΗ</Login>
-        <Cart>
-          <Text>ΚΑΛΑΘΙ / 0€</Text>
-          <Link to="/cart">
-            <CartIcon>
-              <FaShoppingBasket />
-              {cartItems.length > 0 ? <CountCart>{cartItems.length}</CountCart> : null}
-            </CartIcon>
-          </Link>
-        </Cart> */}
       </Right>
     </Container>
   )

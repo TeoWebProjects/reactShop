@@ -6,6 +6,7 @@ import Home from "./pages/Home"
 import Product from "./pages/Product"
 import NoPage from "./pages/NoPage"
 import CartPage from "./pages/CartPage"
+import MobileMenu from "./components/MobileMenu"
 
 const Main = styled.div``
 
