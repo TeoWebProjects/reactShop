@@ -15,12 +15,17 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: 900px) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 `
 
 const Left = styled.div`
   align-self: center;
   @media (max-width: 900px) {
     font-size: 0.7rem;
+    justify-content: start;
   }
   display: flex;
   gap: 1rem;
@@ -65,7 +70,7 @@ const TopHeader = () => {
       <Left>
         <Phone>
           <FaPhoneAlt />
-          <PhoneText>2541057416 - 2541024789</PhoneText>
+          <PhoneText>2541057416</PhoneText>
         </Phone>
         <Email>
           <MdEmail />
