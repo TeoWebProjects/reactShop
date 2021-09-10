@@ -1,12 +1,14 @@
-import { React } from "react"
-import { useDispatch, useSelector } from "react-redux"
+import { React, useState, useEffect } from "react"
+import { useSelector } from "react-redux"
 import styled from "styled-components"
 import { Link } from "react-router-dom"
 import { FaShoppingBasket } from "react-icons/fa"
+import { BsList } from "react-icons/bs"
 
 const Container = styled.div`
   padding-left: 2rem;
   padding-right: 2rem;
+  padding-bottom: 0.3rem;
   display: flex;
   justify-content: space-between;
   a {
@@ -72,19 +74,65 @@ const CountCart = styled.div`
   top: -5px;
   right: -3px;
 `
+
+const Mid = styled.div`
+  font-size: 2rem;
+  align-self: center;
+`
 const MainHeader = () => {
+  const [width, setWidth] = useState(0)
+
   const cart = useSelector((state) => state.cart)
   const { cartItems } = cart
+  useEffect(() => {
+    updateDimensions()
+    window.addEventListener("resize", updateDimensions)
+    console.log(width)
+  }, [width])
+
+  const updateDimensions = () => {
+    const width = window.innerWidth
+    setWidth(width)
+  }
   return (
     <Container>
+      {width < 900 ? (
+        <Mid>
+          <BsList />
+        </Mid>
+      ) : null}
+
       <Link to="/">
         <Logo>
-          10DAYS<Span>.</Span>
+          MyShop<Span>.</Span>
         </Logo>
       </Link>
-      <Search type="search" placeholder="Αναζήτηση…" />
+      {width > 900 ? <Search type="search" placeholder="Αναζήτηση…" /> : null}
       <Right>
-        <Login>ΣΥΝΔΕΣΗ</Login>
+        {width > 900 ? (
+          <>
+            <Login>ΣΥΝΔΕΣΗ</Login>
+            <Cart>
+              <Text>ΚΑΛΑΘΙ / 0€</Text>
+              <Link to="/cart">
+                <CartIcon>
+                  <FaShoppingBasket />
+                  {cartItems.length > 0 ? <CountCart>{cartItems.length}</CountCart> : null}
+                </CartIcon>
+              </Link>
+            </Cart>
+          </>
+        ) : (
+          <Cart>
+            <Link to="/cart">
+              <CartIcon>
+                <FaShoppingBasket />
+                {cartItems.length > 0 ? <CountCart>{cartItems.length}</CountCart> : null}
+              </CartIcon>
+            </Link>
+          </Cart>
+        )}
+        {/* <Login>ΣΥΝΔΕΣΗ</Login>
         <Cart>
           <Text>ΚΑΛΑΘΙ / 0€</Text>
           <Link to="/cart">
@@ -93,7 +141,7 @@ const MainHeader = () => {
               {cartItems.length > 0 ? <CountCart>{cartItems.length}</CountCart> : null}
             </CartIcon>
           </Link>
-        </Cart>
+        </Cart> */}
       </Right>
     </Container>
   )

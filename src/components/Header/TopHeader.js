@@ -18,6 +18,9 @@ const Container = styled.div`
 
 const Left = styled.div`
   align-self: center;
+  @media (max-width: 900px) {
+    font-size: 0.7rem;
+  }
 `
 
 const Right = styled.div`

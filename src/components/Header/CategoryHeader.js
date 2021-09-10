@@ -15,6 +15,10 @@ const CategoryCon = styled.ul`
   font-weight: 600;
   font-family: Arial, Helvetica, sans-serif;
 
+  @media (max-width: 900px) {
+    font-size: 0.7rem;
+  }
+
   a {
     color: white;
     text-decoration: none;
