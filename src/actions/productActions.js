@@ -12,11 +12,15 @@ export const listProducts =
   (id = "") =>
   async (dispatch) => {
     try {
+      let url = ""
       dispatch({ type: PRODUCT_LIST_REQUEST })
-      const { data } = await axios.get(`http://localhost:5000/api/products/category/${id}`)
+      // const { data } = await axios.get(`http://localhost:5000/api/products/category/${id}`)
       if (process.env.NODE_ENV === "production") {
-        const { data } = await axios.get(`https://teoshopapi.herokuapp.com/api/products/category/${id}`)
+        url = `https://teoshopapi.herokuapp.com/api/products/category/${id}`
+      } else {
+        url = `http://localhost:5000/api/products/category/${id}`
       }
+      const { data } = await axios.get(url)
       dispatch({
         type: PRODUCT_LIST_SUCCESS,
         payload: data,
@@ -32,11 +36,14 @@ export const listProducts =
 export const listProductDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_DETAILS_REQUEST })
-
-    const product = await axios.get(`http://localhost:5000/api/products/${id}`)
+    let url = ""
     if (process.env.NODE_ENV === "production") {
-      const product = await axios.get(`https://teoshopapi.herokuapp.com/api/products/${id}`)
+      url = `https://teoshopapi.herokuapp.com/api/products/${id}`
+    } else {
+      url = `http://localhost:5000/api/products/${id}`
     }
+
+    const product = await axios.get(url)
     dispatch({
       type: PRODUCT_DETAILS_SUCCESS,
       payload: product.data,

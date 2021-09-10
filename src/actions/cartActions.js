@@ -7,10 +7,14 @@ import {
 } from "../constants/cartConstants"
 
 export const addToCart = (id) => async (dispatch, getState) => {
-  const { data } = await axios.get(`http://localhost:5000/api/products/${id}`)
+  let url = ""
+
   if (process.env.NODE_ENV === "production") {
-    const { data } = await axios.get(`https://teoshopapi.herokuapp.com/api/products/${id}`)
+    url = `https://teoshopapi.herokuapp.com/api/products/${id}`
+  } else {
+    url = `http://localhost:5000/api/products/${id}`
   }
+  const { data } = await axios.get(url)
 
   dispatch({
     type: CART_ADD_ITEM,
