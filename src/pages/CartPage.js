@@ -7,6 +7,15 @@ const Container = styled.div`
   margin-left: auto;
   margin-right: auto;
   margin-top: 1rem;
+  @media (max-width: 1260px) {
+    width: 80%;
+  }
+
+  @media (max-width: 960px) {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 `
 
 const Title = styled.div`
@@ -20,6 +29,9 @@ const Cart = styled.div`
   justify-content: space-between;
   gap: 2rem;
   margin-top: 1rem;
+  @media (max-width: 960px) {
+    flex-direction: column;
+  }
 `
 
 const Left = styled.div`
@@ -50,6 +62,9 @@ const ProductName = styled.div`
   align-self: center;
   font-weight: 500;
   width: 400px;
+  @media (max-width: 1260px) {
+    font-size: 0.8rem;
+  }
 `
 
 const ProductPrice = styled.div`
@@ -63,12 +78,18 @@ const ProductPrice = styled.div`
 const RegularPrice = styled.div`
   align-self: flex-end;
   text-decoration: line-through;
+  @media (max-width: 1260px) {
+    font-size: 0.6rem;
+  }
 `
 
 const DiscountPrice = styled.div`
   align-self: center;
   font-size: 1.5rem;
   font-weight: 500;
+  @media (max-width: 1260px) {
+    font-size: 1rem;
+  }
 `
 
 const Right = styled.div`
@@ -84,6 +105,11 @@ const Right = styled.div`
   border: 2px solid #282828;
   border-radius: 25px;
   background: #f6f6f6;
+  @media (max-width: 960px) {
+    align-self: center;
+    width: 100%;
+    border: none;
+  }
 `
 const SubTitle = styled.div`
   text-align: center;
@@ -116,6 +142,10 @@ const CheckOutButton = styled.button`
   width: 65%;
   align-self: center;
   cursor: pointer;
+  @media (max-width: 1260px) {
+    font-size: 0.8rem;
+    width: 90%;
+  }
 `
 
 const DeleteButton = styled.div`
@@ -133,6 +163,13 @@ const DeleteButton = styled.div`
 
   &:hover {
     background: #ff002f;
+  }
+
+  @media (max-width: 1260px) {
+    width: 20px;
+    height: 20px;
+    line-height: 1.2rem;
+    align-self: flex-start;
   }
 `
 

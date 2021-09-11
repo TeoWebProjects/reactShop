@@ -1,0 +1,115 @@
+.container {
+  padding: 10px;
+  box-sizing: border-box;
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+a.aman {
+  background-size: cover;
+  font-size: 0;
+  text-decoration: none;
+}
+
+.left {
+  flex: 0 0 30%;
+  font-size: 0;
+  margin-right: 10px;
+}
+.bsla {
+  width: 100%;
+  padding-bottom: 55%;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.bsmca,
+.bsmcd {
+  flex-grow: 62;
+  padding-bottom: 38.6%;
+}
+
+.bslb {
+  width: 100%;
+  padding-bottom: 75%;
+  display: inline-block;
+}
+
+#hf2 .bsmcb {
+  margin-left: 15px;
+  flex-grow: 38;
+  padding-bottom: 38.6%;
+}
+
+.mid {
+  flex: 0 0 50.6%;
+  font-size: 0;
+}
+
+.bsmc:first-child {
+  margin-bottom: 15px;
+}
+
+.bsmc:last-child {
+  margin-top: 15px;
+}
+.bsmc {
+  flex-grow: 1;
+  flex-flow: row;
+  display: flex;
+}
+
+.bsmcc,
+.bsmca {
+  margin-right: 15px;
+}
+.bsmcb,
+.bsmcc {
+  flex-grow: 38;
+}
+
+.bsrc {
+  flex-grow: 1;
+}
+.bsmca,
+.bsmcd {
+  flex-grow: 62;
+}
+.right {
+  flex: 0 0 19%;
+  align-items: stretch;
+  flex-direction: column;
+  display: flex;
+  font-size: 0;
+  padding-left: 10px;
+}
+
+.image1 {
+  background-image: url("https://www.fylliana.gr/images/banners/bed-concept-a.jpg");
+  background-repeat: no-repeat;
+}
+.image2 {
+  background-image: url("https://www.fylliana.gr/images/banners/furniture-a.jpg");
+}
+.image3 {
+  background-image: url("https://www.fylliana.gr/images/banners/decoration-a.jpg");
+  background-repeat: no-repeat;
+}
+.image4 {
+  background-image: url("https://www.fylliana.gr/images/banners/kitchenware-a.jpg");
+  background-repeat: no-repeat;
+}
+.image5 {
+  background-image: url("https://www.fylliana.gr/images/banners/garden-furniture-a.jpg");
+  background-repeat: no-repeat;
+}
+.image6 {
+  background-image: url("https://www.fylliana.gr/images/banners/fabrics-a.jpg");
+  background-repeat: no-repeat;
+}
+.image7 {
+  background-image: url("https://www.fylliana.gr/images/banners/lighting-a.jpg");
+  background-repeat: no-repeat;
+}
