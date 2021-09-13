@@ -7,6 +7,7 @@ import Product from "./pages/Product"
 import NoPage from "./pages/NoPage"
 import CartPage from "./pages/CartPage"
 import MobileMenu from "./components/MobileMenu"
+import CheckOutPage from "./pages/CheckOutPage"
 
 const Main = styled.div``
 
@@ -24,6 +25,9 @@ function App() {
           </Route>
           <Route path="/cart">
             <CartPage />
+          </Route>
+          <Route path="/checkout">
+            <CheckOutPage />
           </Route>
           <Route exact path="/">
             <Home />

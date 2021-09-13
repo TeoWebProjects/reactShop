@@ -16,11 +16,15 @@ const Container = styled.div`
 
 const SingleProduct = styled.div`
   display: flex;
+  @media (max-width: 960px) {
+    flex-direction: column;
+  }
 `
 
 const Left = styled.div`
   display: flex;
   flex: 1;
+  justify-content: center;
 `
 
 const Right = styled.div`
@@ -31,7 +35,7 @@ const Right = styled.div`
 `
 
 const Image = styled.img`
-  width: 80%;
+  width: 100%;
   height: auto;
   cursor: zoom-in;
 `
@@ -40,6 +44,9 @@ const Name = styled.div`
   font-size: 1.5rem;
   font-weight: bold;
   text-align: center;
+  @media (max-width: 960px) {
+    font-size: 1rem;
+  }
 `
 const Description = styled.div`
   text-align: center;
@@ -50,8 +57,8 @@ const Price = styled.div`
   display: flex;
   justify-content: center;
   gap: 0.3rem;
-  margin-top: 1rem;
   align-items: center;
+  align-self: center;
 `
 
 const RegularPrice = styled.div`
@@ -69,16 +76,18 @@ const CartButton = styled.button`
   border: none;
   padding: 1rem;
   font-size: bold;
-  background: teal;
+  background: #db163a;
   color: white;
   font-weight: bold;
   cursor: pointer;
   width: 80%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 `
-const Availability = styled.div``
+const Availability = styled.div`
+  align-self: center;
+`
 
 const FullImageCon = styled.div`
   position: absolute;
@@ -113,6 +122,15 @@ const ExitImage = styled.div`
   cursor: pointer;
   margin-top: 1rem;
 `
+const Wrap = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  align-content: center;
+  margin-top: 1rem;
+`
 const Product = () => {
   const { id } = useParams()
   const dispatch = useDispatch()
@@ -140,11 +158,13 @@ const Product = () => {
           <Right>
             <Name>{product.name}</Name>
             <Description>{product.description}</Description>
-            <Price>
+            <Wrap>
               <Availability>{`Διαθεσιμότητα:${product.availability}`}</Availability>
-              <RegularPrice>{product.price}€</RegularPrice>
-              <DiscountPrice>{product.discountPrice}€</DiscountPrice>
-            </Price>
+              <Price>
+                <RegularPrice>{product.price}€</RegularPrice>
+                <DiscountPrice>{product.discountPrice}€</DiscountPrice>
+              </Price>
+            </Wrap>
             <CartButton onClick={() => dispatch(addToCart(product._id))}>ADD TO CART</CartButton>
           </Right>
 

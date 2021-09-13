@@ -5,23 +5,36 @@ import { GiCash } from "react-icons/gi"
 
 const Container = styled.div`
   display: flex;
-  justify-content: center;
-  gap: 3rem;
+  justify-content: space-around;
+  /* gap: 3rem; */
   background: #fafafa;
   padding: 1rem;
   margin-top: -10px;
+  @media (max-width: 650px) {
+    text-align: center;
+    gap: 0.4rem;
+  }
 `
 const Right = styled.div`
   display: flex;
   gap: 1rem;
+  @media (max-width: 650px) {
+    gap: 0.2rem;
+  }
 `
 const Mid = styled.div`
   display: flex;
   gap: 1rem;
+  @media (max-width: 650px) {
+    gap: 0.2rem;
+  }
 `
 const Left = styled.div`
   display: flex;
   gap: 1rem;
+  @media (max-width: 650px) {
+    gap: 0.2rem;
+  }
 `
 const Icon = styled.div`
   font-size: 3.5rem;
@@ -44,7 +57,7 @@ const Text = styled.div`
     font-size: 0.75rem;
   }
   @media (max-width: 650px) {
-    font-size: 0.5rem;
+    font-size: 0.6rem;
   }
 `
 const Services = () => {

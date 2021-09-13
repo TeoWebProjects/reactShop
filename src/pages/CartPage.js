@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { useDispatch, useSelector } from "react-redux"
 import { removeFromCart } from "../actions/cartActions"
+import { Link } from "react-router-dom"
 const Container = styled.div`
   max-width: 1260px;
   margin-left: auto;
@@ -173,6 +174,11 @@ const DeleteButton = styled.div`
   }
 `
 
+const Fix = styled.div`
+  text-align: center;
+  width: 100%;
+`
+
 const CartPage = () => {
   const cart = useSelector((state) => state.cart)
   const { cartItems } = cart
@@ -217,7 +223,11 @@ const CartPage = () => {
                 <TextTotalPrice>Συνολική τιμή:</TextTotalPrice>
                 <TotalValue>{subTotal}€</TotalValue>
               </TotalPrice>
-              <CheckOutButton>ΟΛΟΚΛΗΡΩΣΗ ΠΑΡΑΓΓΕΛΙΑΣ</CheckOutButton>
+              <Fix>
+                <Link to="/checkout">
+                  <CheckOutButton>ΟΛΟΚΛΗΡΩΣΗ ΠΑΡΑΓΓΕΛΙΑΣ</CheckOutButton>
+                </Link>
+              </Fix>
             </Right>
           </Cart>
         </>
