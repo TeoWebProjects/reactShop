@@ -14,7 +14,14 @@ export const createOrder = (order) => async (dispatch) => {
       },
     }
 
-    const { data } = await axios.post(`http://localhost:5000/api/orders`, order, config)
+    let url = ""
+    if (process.env.NODE_ENV === "production") {
+      url = `https://teoshopapi.herokuapp.com/api/orders`
+    } else {
+      url = `http://localhost:5000/api/orders`
+    }
+
+    const { data } = await axios.post(url, order, config)
 
     dispatch({
       type: ORDER_CREATE_SUCCESS,
